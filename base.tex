@@ -1,0 +1,109 @@
+\documentclass[article, 12pt, oneside,	a4paper, english, brazil, sumario=tradicional]{abntex2}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+\usepackage{nomencl}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage[brazilian,hyperpageref]{backref}
+\usepackage[num]{abntex2cite}
+\setlength{\headsep}{45pt}
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+\renewcommand{\backref}{}
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
+
+% Configurações de aparência do PDF final
+\definecolor{blue}{RGB}{41,5,195}
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title},
+		pdfauthor={\@author},
+    	pdfsubject={\@title},
+	    pdfcreator={\@author},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{atigo científico},
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=blue,          	% color of internal links
+    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+
+% --- Personalizando a página
+
+\makepagestyle{meuestilo}
+  \makeoddhead{meuestilo} %%pagina ímpar ou com oneside
+     {
+    \includegraphics[scale=0.4]{branco.png}
+    }
+     {}
+     {{\href{mailto:contato@danielponte.com.br}{\texttt{contato@danielponte.com.br}}}
+
+     (86) 9 9588-6151
+
+     OAB n°: 21.452/PI
+     }
+  \makeheadrule{meuestilo}{\textwidth}{\normalrulethickness}
+  \makeevenfoot{meuestilo}
+     {} %%pagina par
+     {\thepage}
+     {}
+  \makeoddfoot{meuestilo} %%pagina ímpar ou com oneside
+     {}
+     {\thepage}
+     {}
+
+
+
+% --- Informações de dados para CAPA e FOLHA DE ROSTO ---
+
+
+\titulo{}
+\tituloestrangeiro{}
+\autor{
+Daniel Ponte\thanks{Advogado. Especialista em Direito Penal e Segurança pública pela Universidade de São Gortaro - MG. Especialista em Direito Constitucional pela Universidade Legale. \url{http://www.danielponte.com.br/}}
+}
+\local{Brasil}
+\data{2022}
+\makeatother
+\makeindex
+\setlrmarginsandblock{3cm}{3cm}{*}
+\setulmarginsandblock{3cm}{3cm}{*}
+\checkandfixthelayout
+\setlength{\parindent}{1.3cm}
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+\SingleSpacing
+
+
+% ----
+% Início do documento
+% ----
+\begin{document}
+\selectlanguage{brazil}
+\frenchspacing
+\textual
+\pagestyle{meuestilo}
+\section{Introdução}
+
+\vspace{2cm}
+\begingroup
+\centering
+
+Daniel Ponte Carvalho\\ OAB: 21.452/PI \\ Teresina - PI, \today
+
+\endgroup
+\postextual
+\bibliography{bibliografia}
+%\glossary
+\bookmarksetup{startatroot}%
+\end{document}
